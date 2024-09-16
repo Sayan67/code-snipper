@@ -53,14 +53,14 @@ export default function Hero() {
             <div className="space-y-4">
                 <div className="flex gap-8 px-8">
                     <h1 className="text-2xl font-semibold">Language based</h1>
-                    {languages?.map((item) => {
-                        return <Button onClick={() => handleClick(item)} disabled={isLoading}>{item}</Button>
+                    {languages?.map((item,idx) => {
+                        return <Button key={idx} onClick={() => handleClick(item)} disabled={isLoading}>{item}</Button>
                     })}
                 </div>
                 <div className="flex gap-8 px-8">
                     <h1 className="text-2xl font-semibold">Topic based</h1>
-                    {topics?.map((item) => {
-                        return <Button onClick={() => handleTopics(item)} disabled={isLoading}>{item}</Button>
+                    {topics?.map((item,idx) => {
+                        return <Button key={idx} onClick={() => handleTopics(item)} disabled={isLoading}>{item}</Button>
                     })}
                 </div>
             </div>
