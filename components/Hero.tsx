@@ -3,14 +3,18 @@ import { Button } from "@/components/ui/button";
 import { codeGen, whichLanguage } from "@/utils/codeGen";
 import { useState } from "react";
 
-import CodeSnippet from "@/components/CodeSnippet";
-
+// import CodeSnippet from "@/components/CodeSnippet";
+import dynamic from "next/dynamic";
+const CodeSnippet = dynamic(
+    () => import('@/components/CodeSnippet'),
+    { ssr: false }
+  )
 
 const languages = ['javascript', 'python', 'c', 'c++','java']
 const topics = ['React', 'AI/ML', 'Data Structures(java)']
 
 export default function Hero() {
-    const [code, setCode] = useState("")
+    const [code, setCode] = useState("//this is a code snippet")
     const [topic, setTopic] = useState("java")
     const [isGenerated, setIsGenerated] = useState(false)
     const [isLoading, setIsLoading] = useState(false)
